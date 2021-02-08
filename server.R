@@ -2,7 +2,7 @@ library(tidyverse)
 library(tidytext)
 library(shiny)
 
-# demoing group support in the `choices` arg
+
 function(input, output) {
   
   netflix <- read_csv('netflix_titles.csv')
@@ -64,10 +64,7 @@ function(input, output) {
                         match_main_characters, 
                         match_cast,
                         match_desc)
-    
-    
-    #check movie or TV
-    #all_titles_summ <- arrange(all_titles_summ, desc(tally))
+
     all_titles <- merge(all_titles, netflix, by = 'show_id')
     
     
@@ -83,9 +80,7 @@ function(input, output) {
     top_picks_df <- data.frame(title = paste0(top_picks$title,'\n'), 
                                rank = paste0(seq(1,nrow(top_picks),1),'.'))
     top_picks_df$both <- paste(top_picks_df$rank, top_picks_df$title, sep = ' ')
-    #writeLines(paste0("You chose '",title,"'.\nBased on your choice you might like: \n\n"))
-    #writeLines(top_picks_df$both)
-    
+   
     
   }
   
