@@ -45,7 +45,7 @@ countries$type <- 'country'
 spread_df <- data.frame()
 mapply(netflix$show_id, FUN = spread_netflix, var = netflix$listed_in)
 genres <- spread_df
-genres$type <- 'country'
+genres$type <- 'genres'
 
 #get directors
 spread_df <- data.frame()
